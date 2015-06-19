@@ -15,10 +15,10 @@ import java.util.List;
 /**
  * Created by weiliyang on 6/19/15.
  */
-public class PostMethodConstructor implements MethodConstructor {
+public class PostMethodConstructor extends MethodConstructorBase {
 
     @Override
-    public HttpMethodBase getHttpMethod(Config config) {
+    public HttpMethodBase prepare(Config config) {
         if (config == null) {
             return null;
         }

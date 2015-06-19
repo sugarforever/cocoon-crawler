@@ -14,10 +14,10 @@ import java.util.List;
 /**
  * Created by weiliyang on 6/19/15.
  */
-public class GetMethodConstructor implements MethodConstructor {
+public class GetMethodConstructor extends MethodConstructorBase {
 
     @Override
-    public HttpMethodBase getHttpMethod(Config config) {
+    public HttpMethodBase prepare(Config config) {
         if (config == null) {
             return null;
         }

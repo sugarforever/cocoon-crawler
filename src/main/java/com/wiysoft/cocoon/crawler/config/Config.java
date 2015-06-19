@@ -18,6 +18,7 @@ public class Config {
     private String responseDecodeCharset;
     private String uri;
     private Hashtable<String, List<String>> parameters = new Hashtable<String, List<String>>();
+    private boolean followRedirect;
 
     public HttpMethod getMethod() {
         return method;
@@ -57,5 +58,13 @@ public class Config {
         } else {
             this.parameters = new Hashtable<String, List<String>>(parameters);
         }
+    }
+
+    public boolean isFollowRedirect() {
+        return followRedirect;
+    }
+
+    public void setFollowRedirect(boolean followRedirect) {
+        this.followRedirect = followRedirect;
     }
 }

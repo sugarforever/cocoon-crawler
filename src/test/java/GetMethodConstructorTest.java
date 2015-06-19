@@ -55,4 +55,48 @@ public class GetMethodConstructorTest {
 
         Assert.assertNull(constructor.getHttpMethod(config));
     }
+
+    @Test
+    public void testGetHttpMethodFollowRedirects1() throws Exception {
+        Config config = new Config();
+        config.setResponseDecodeCharset("gb2312");
+        config.setMethod(Config.HttpMethod.GET);
+        Hashtable<String, List<String>> parameters = new Hashtable<String, List<String>>();
+        parameters.put("code", Arrays.asList(new String[] {"600001", "600002"}));
+        parameters.put("area", Arrays.asList(new String[] {"sh", "sz"}));
+        config.setParameters(parameters);
+        config.setFollowRedirect(true);
+        config.setUri("http://www.abc.com");
+
+        assert constructor.getHttpMethod(config).getFollowRedirects() == true;
+    }
+
+    @Test
+    public void testGetHttpMethodFollowRedirects2() throws Exception {
+        Config config = new Config();
+        config.setResponseDecodeCharset("gb2312");
+        config.setMethod(Config.HttpMethod.GET);
+        Hashtable<String, List<String>> parameters = new Hashtable<String, List<String>>();
+        parameters.put("code", Arrays.asList(new String[] {"600001", "600002"}));
+        parameters.put("area", Arrays.asList(new String[] {"sh", "sz"}));
+        config.setParameters(parameters);
+        config.setFollowRedirect(false);
+        config.setUri("http://www.abc.com");
+
+        assert constructor.getHttpMethod(config).getFollowRedirects() == false;
+    }
+
+    @Test
+    public void testGetHttpMethodFollowRedirects3() throws Exception {
+        Config config = new Config();
+        config.setResponseDecodeCharset("gb2312");
+        config.setMethod(Config.HttpMethod.GET);
+        Hashtable<String, List<String>> parameters = new Hashtable<String, List<String>>();
+        parameters.put("code", Arrays.asList(new String[] {"600001", "600002"}));
+        parameters.put("area", Arrays.asList(new String[] {"sh", "sz"}));
+        config.setParameters(parameters);
+        config.setUri("http://www.abc.com");
+
+        assert constructor.getHttpMethod(config).getFollowRedirects() == false;
+    }
 }
