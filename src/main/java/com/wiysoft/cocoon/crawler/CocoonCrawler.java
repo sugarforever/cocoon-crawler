@@ -4,6 +4,7 @@ import com.wiysoft.cocoon.crawler.common.Constants;
 import com.wiysoft.cocoon.crawler.config.Config;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethodBase;
+import org.apache.commons.httpclient.URIException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 
