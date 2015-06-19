@@ -6,4 +6,6 @@ package com.wiysoft.cocoon.crawler.common;
 public interface Constants {
 
     public static final String PROPS_FILE_NAME = "cocoon.crawler.properties";
+
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 }

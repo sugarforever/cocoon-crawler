@@ -36,7 +36,7 @@ public class Config {
     }
 
     public boolean isValid() {
-        return this.method != null && StringUtils.isNotEmpty(this.responseDecodeCharset) && StringUtils.isNotEmpty(this.uri);
+        return this.method != null && StringUtils.isNotEmpty(this.uri);
     }
 
     public String getUri() {

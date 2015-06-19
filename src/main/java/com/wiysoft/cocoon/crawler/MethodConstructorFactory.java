@@ -22,7 +22,7 @@ public final class MethodConstructorFactory {
         return factory;
     }
 
-    public static final MethodConstructor getMethodConstructor(Config config) {
+    public final MethodConstructor getMethodConstructor(Config config) {
         MethodConstructor constructor = null;
         if (config != null) {
             if (config.getMethod() == Config.HttpMethod.GET) {

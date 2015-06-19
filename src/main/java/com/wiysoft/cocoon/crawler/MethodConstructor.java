@@ -9,5 +9,5 @@ import org.apache.commons.httpclient.HttpMethodBase;
 public interface MethodConstructor {
 
     HttpMethodBase getHttpMethod(Config config);
-
+    
 }

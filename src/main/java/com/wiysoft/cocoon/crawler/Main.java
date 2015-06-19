@@ -1,5 +1,6 @@
 package com.wiysoft.cocoon.crawler;
 
+import com.wiysoft.cocoon.crawler.config.Config;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -14,17 +15,14 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        HttpClient client = new HttpClient();
+        Config config = new Config();
+        config.setMethod(Config.HttpMethod.GET);
+        config.setResponseDecodeCharset("gb2312");
+        config.setUri("http://market.finance.sina.com.cn/downxls.php?date=2015-06-19&symbol=sz300443");
 
-        GetMethod method = new GetMethod("http://market.finance.sina.com.cn/downxls.php?date=2015-06-19&symbol=sz300443");
+        CocoonCrawler cc = new CocoonCrawler(config);
+        String response = cc.run();
 
-        int returnCode = client.executeMethod(method);
-        System.out.println(returnCode);
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream(), "gb2312"));
-        String readLine;
-        while(((readLine = br.readLine()) != null)) {
-            System.out.println(readLine);
-        }
+        System.out.println(response);
     }
 }
